@@ -1,8 +1,9 @@
 <template>
   <button
     class="submit-button"
-    @click="addTask"
+    v-on:click="$emit('addTask')"
   >
+    <!-- @click="addTask" -->
     {{ title }}
   </button>
 </template>
@@ -16,10 +17,14 @@ export default {
     };
   },
   methods: {
-    addTask: function (event) {
-      console.log('clicked');
-    },
+    // addTask: function (event) {
+    //   console.log('clicked');
+    //   this.$store.dispatch('addTask', 'task text');
+    //   // console.log('0 tsk >> ', this.$store.state.tasks[0]);
+    //   console.log('0 tsk getter >> ', this.$store.getters.allTasks[0]);
+    // },
   },
+  computed: {},
 };
 </script>
 

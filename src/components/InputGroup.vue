@@ -1,7 +1,8 @@
 <template>
   <div class="input-group">
     <Input v-model="taskText" />
-    <SubmitButton />
+    <SubmitButton v-on:addTask="addTask()" />
+    <!-- @click="addTask(taskText)" -->
   </div>
 </template>
 <script>
@@ -17,6 +18,14 @@ export default {
     return {
       taskText: '',
     };
+  },
+  methods: {
+    addTask: function (event) {
+      console.log('clicked');
+      this.$store.dispatch('addTask', 'task text');
+      // console.log('0 tsk >> ', this.$store.state.tasks[0]);
+      console.log('0 tsk getter >> ', this.$store.getters.allTasks[0]);
+    },
   },
 };
 </script>
