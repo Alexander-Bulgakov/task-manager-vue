@@ -18,7 +18,6 @@ export default {
   components: { Task },
   mounted: function () {
     const tasks = localStorage.getItem('tasks');
-    console.log('tasks', JSON.parse(tasks));
     tasks ? this.$store.dispatch('addTasks', JSON.parse(tasks)) : null;
   },
   computed: mapState(['tasks']),
