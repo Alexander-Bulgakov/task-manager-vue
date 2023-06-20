@@ -2,11 +2,13 @@
   <div class="container">
     <h1 class="tasks-header">{{ title }}</h1>
     <InputGroup />
+    <TasksList />
   </div>
 </template>
 
 <script>
 import InputGroup from '@/components/InputGroup.vue';
+import TasksList from '@/components/TasksList.vue';
 export default {
   name: 'TaskManager',
   data() {
@@ -16,6 +18,7 @@ export default {
   },
   components: {
     InputGroup,
+    TasksList,
   },
 };
 </script>

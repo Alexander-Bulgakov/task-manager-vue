@@ -22,8 +22,8 @@ export default {
   methods: {
     addTask: function (event) {
       console.log('clicked');
-      this.$store.dispatch('addTask', 'task text');
-      // console.log('0 tsk >> ', this.$store.state.tasks[0]);
+      this.$store.dispatch('addTask', this.taskText);
+      this.taskText = '';
       console.log('0 tsk getter >> ', this.$store.getters.allTasks[0]);
     },
   },

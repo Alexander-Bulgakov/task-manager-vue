@@ -13,9 +13,13 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-    add_Task(state, task) {
-      console.log('tasks');
-      console.log('taskText store >>>', task);
+    add_Task(state, taskText) {
+      console.log('taskText store >>>', taskText);
+      const task = {
+        id: Date.now(),
+        title: taskText.trim(),
+        status: 'active',
+      };
       state.tasks.push(task);
       console.log(state.tasks);
     },
