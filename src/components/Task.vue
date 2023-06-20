@@ -22,7 +22,7 @@
       </button>
       <button
         class="button-group__button red"
-        @click="deleteTask(task.id)"
+        @click="handleDeleteTask(task.id)"
       >
         Удалить
       </button>
@@ -42,13 +42,15 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['deleteTask', 'editTask']),
+    // ...mapActions(['deleteTask', 'editTask']),
     handleChangeText(e) {
       this.taskText = e.target.value;
     },
+    handleDeleteTask(id) {
+      this.$store.dispatch('deleteTask', id);
+    },
     handleEditTask(task) {
       this.editing = !this.editing;
-      const input = this.$refs.input;
       if (this.editing) {
         this.taskText = task.text;
       } else {
@@ -92,9 +94,9 @@ export default {
     width: 100%;
     height: 100%;
     padding: 0.3em;
-    font-size: 1rem;
     border: solid 1px #c7c7c7;
     border-radius: 3px;
+    font-size: 1rem;
     &:focus {
       border: solid 1px grey;
     }
