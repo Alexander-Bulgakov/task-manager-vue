@@ -17,14 +17,12 @@ export default new Vuex.Store({
       state.tasks = tasks;
     },
     _addTask(state, taskText) {
-      console.log('taskText store >>>', taskText);
       const task = {
         id: Date.now(),
         text: taskText.trim(),
         status: 'active',
       };
       state.tasks.push(task);
-      console.log(state.tasks);
     },
     _deleteTask(state, id) {
       state.tasks = state.tasks.filter((task) => task.id !== id);
@@ -39,7 +37,6 @@ export default new Vuex.Store({
         }
         return item;
       });
-      console.log('tasks store >>> ', state.tasks);
       this.dispatch('_updateLocalStorage');
     },
   },
@@ -57,12 +54,9 @@ export default new Vuex.Store({
     },
     editTask({ commit }, task) {
       commit('_editTask', task);
-      console.log('edit store >>> ', task);
       this.dispatch('_updateLocalStorage');
     },
     _updateLocalStorage() {
-      console.log('update local');
-      // debugger;
       localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
     },
   },

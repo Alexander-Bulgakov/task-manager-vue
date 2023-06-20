@@ -14,7 +14,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .task-input {
   height: 100%;
   width: 100%;

@@ -8,12 +8,25 @@
     </p>
     <input
       type="text"
+      class="input"
       v-else
       v-bind:value="taskText"
       @change="handleChangeText"
     />
-    <button @click="handleEditTask(task)">{{ editing ? 'Сохранить' : 'Редактировать' }}</button>
-    <button @click="deleteTask(task.id)">Удалить</button>
+    <div class="button-group">
+      <button
+        class="button-group__button"
+        @click="handleEditTask(task)"
+      >
+        {{ editing ? 'Сохранить' : 'Редактировать' }}
+      </button>
+      <button
+        class="button-group__button red"
+        @click="deleteTask(task.id)"
+      >
+        Удалить
+      </button>
+    </div>
   </div>
 </template>
 
@@ -35,7 +48,7 @@ export default {
     },
     handleEditTask(task) {
       this.editing = !this.editing;
-      console.log(this.editing);
+      const input = this.$refs.input;
       if (this.editing) {
         this.taskText = task.text;
       } else {
@@ -47,17 +60,44 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .task-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  min-height: 2.5em;
   width: 100%;
   padding: 0.5em;
+  border-bottom: solid 1px grey;
   font-weight: 400;
   .task-text {
     width: 100%;
+    text-align: start;
+  }
+  .button-group {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5em;
+    padding: 0.2em;
+    &__button {
+      padding: 0.3em 0.5em;
+      background-color: #88a6eb;
+      border-radius: 3px;
+    }
+    .red {
+      background-color: #ec5645;
+    }
+  }
+  .input {
+    width: 100%;
+    height: 100%;
+    padding: 0.3em;
+    font-size: 1rem;
+    border: solid 1px #c7c7c7;
+    border-radius: 3px;
+    &:focus {
+      border: solid 1px grey;
+    }
   }
 }
 </style>

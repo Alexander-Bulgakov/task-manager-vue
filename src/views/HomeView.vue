@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <img
+      class="logo"
       alt="Vue logo"
       src="../assets/logo.png"
     />
@@ -19,3 +20,8 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.logo {
+  width: 120px;
+}
+</style>

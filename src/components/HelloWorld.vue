@@ -1,143 +1,65 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1 class="header">Добро пожаловать в мое первое приложение на VueJS</h1>
     <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
+      Это ссылка на мой
       <a
-        href="https://cli.vuejs.org"
+        href="https://github.com/Alexander-Bulgakov"
         target="_blank"
         rel="noopener"
-        >vue-cli documentation</a
+        >профиль на GitHub</a
       >.
     </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router"
-          target="_blank"
-          rel="noopener"
-          >router</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex"
-          target="_blank"
-          rel="noopener"
-          >vuex</a
-        >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-          rel="noopener"
-          >Core Docs</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-          rel="noopener"
-          >Forum</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-          rel="noopener"
-          >Community Chat</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-          rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://news.vuejs.org"
-          target="_blank"
-          rel="noopener"
-          >News</a
-        >
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a
-          href="https://router.vuejs.org"
-          target="_blank"
-          rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://vuex.vuejs.org"
-          target="_blank"
-          rel="noopener"
-          >vuex</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://vue-loader.vuejs.org"
-          target="_blank"
-          rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
+    <p>А здесь Вы можете накидать мне новых задач в таск-менеджере</p>
+    <ArrowDown class="arrow" />
+    <div class="image-wrapper">
+      <router-link to="/tasks"
+        ><img
+          src="../assets/burlaki.jpg"
+          alt="Бурлаки на Волге"
+      /></router-link>
+    </div>
   </div>
 </template>
 
 <script>
+import ArrowDown from '@/components/double-down-arrow-4854.vue';
 export default {
   name: 'HelloWorld',
+  components: { ArrowDown },
   props: {
     msg: String,
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.hello {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.header {
+  padding: 1em;
+  font-size: 1.5rem;
+}
+.arrow {
+  height: 60px;
+  width: 60px;
+}
+.image-wrapper {
+  width: 600px;
+  img {
+    max-width: 100%;
+    cursor: pointer;
+    transition: transform 0.5s;
+    &:hover {
+      transform: scale(0.97);
+      box-shadow: 0 0 10px #a4aaab;
+    }
+  }
+}
 h3 {
   margin: 40px 0 0;
 }

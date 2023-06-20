@@ -3,7 +3,6 @@
     class="submit-button"
     v-on:click="$emit('addTask')"
   >
-    <!-- @click="addTask" -->
     {{ title }}
   </button>
 </template>
@@ -16,19 +15,12 @@ export default {
       title: 'Добавить задачу',
     };
   },
-  methods: {
-    // addTask: function (event) {
-    //   console.log('clicked');
-    //   this.$store.dispatch('addTask', 'task text');
-    //   // console.log('0 tsk >> ', this.$store.state.tasks[0]);
-    //   console.log('0 tsk getter >> ', this.$store.getters.allTasks[0]);
-    // },
-  },
+  methods: {},
   computed: {},
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .submit-button {
   height: 100%;
   padding: 0.2em 0.7em;

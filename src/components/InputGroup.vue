@@ -2,7 +2,6 @@
   <div class="input-group">
     <Input v-model="taskText" />
     <SubmitButton v-on:addTask="addTask()" />
-    <!-- @click="addTask(taskText)" -->
   </div>
 </template>
 <script>
@@ -21,16 +20,16 @@ export default {
   },
   methods: {
     addTask: function (event) {
-      console.log('clicked');
-      this.$store.dispatch('addTask', this.taskText);
-      this.taskText = '';
-      console.log('0 tsk getter >> ', this.$store.getters.allTasks[0]);
+      if (this.taskText !== '') {
+        this.$store.dispatch('addTask', this.taskText);
+        this.taskText = '';
+      }
     },
   },
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .input-group {
   display: flex;
   justify-content: space-between;
@@ -38,6 +37,5 @@ export default {
   gap: 1em;
   min-height: 60px;
   padding: 0.5em;
-  border-bottom: solid 2px black;
 }
 </style>
