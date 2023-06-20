@@ -1,13 +1,6 @@
 <template>
   <div>
-    <!-- {{ tasks }} -->
     <ul>
-      <!-- <li
-        v-for="task in tasks"
-        v-bind:key="task.id"
-      >
-        {{ task.title }}
-      </li> -->
       <Task
         v-for="task in tasks"
         v-bind:task="task"
@@ -23,6 +16,11 @@ import Task from '@/components/Task.vue';
 export default {
   name: 'TaskList',
   components: { Task },
+  mounted: function () {
+    const tasks = localStorage.getItem('tasks');
+    console.log('tasks', JSON.parse(tasks));
+    tasks ? this.$store.dispatch('addTasks', JSON.parse(tasks)) : null;
+  },
   computed: mapState(['tasks']),
 };
 </script>
